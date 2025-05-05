@@ -1,0 +1,13 @@
+.carouselCardMainContainer{
+    display: flex;
+    flex-direction: column;
+    
+}
+.carouselCardImageContainer{
+    width: 30%;
+    height: 30%;
+}
+.carouselCardImageContainer img{
+    width: 100%;
+    height: 100%;
+}

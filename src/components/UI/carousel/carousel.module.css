@@ -1,0 +1,9 @@
+.carouselMainContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1rem;
+}
+.carouselMainContainer button{
+    height: 10vh;
+}
