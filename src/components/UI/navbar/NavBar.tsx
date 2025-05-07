@@ -36,8 +36,8 @@ export const NavBar = () => {
           {showHamburgerButton?<GiHamburgerMenu style={{padding:"1rem"}} onClick={()=>{setHamburggerButton(!hamburgerButton)}}/>:<></>}
           <div className={hamburgerButton ? styles.navBarSearchOptionsContainer : styles.navBarSearchOptionsContainerHide }>        
               <div className={styles.navBarSearchOptions}><p onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>Men</p><p onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>Women</p><p onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>kids</p></div>
-              <div className={seeMore?styles.navBarSeeMore:styles.seeMoreHide}>
-                <div className={styles.seeMoreOptions}>
+              <div className={seeMore?styles.navBarSeeMore:styles.seeMoreHide}  onMouseEnter={()=>handleMouseEnter()}>
+                <div className={styles.seeMoreOptions} onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>
                   <h3>categoria</h3>
                   <h4>categoria 1</h4>
                   <h4>categoria 2</h4>
@@ -54,27 +54,28 @@ export const NavBar = () => {
               </div>
           </div>
           <div className={styles.navBarImageContainer}><img src={logo} alt="logo" /></div>
-          <div className={styles.navBarSearchOptionsContainerWide}>        
+          <div className={styles.navBarSearchOptionsContainerWide} >        
             {
               !showHamburgerButton?(
-              <><div className={styles.navBarSearchOptionsWide}><p onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>Men</p><p onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>Women</p><p onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>kids</p></div>
-              <div className={seeMore?styles.navBarSeeMore:styles.seeMoreHide}>
-                <div className={styles.seeMoreOptions}>
-                  <h3>categoria</h3>
-                  <h4>categoria 1</h4>
-                  <h4>categoria 2</h4>
-                  <h4>categoria 3</h4>
-                  <h4>categoria 4</h4>
+              <div className={styles.navBarSearchOptionsContainerOptionsWide}>
+                <div className={styles.navBarSearchOptionsWide}><p onMouseEnter={()=>handleMouseEnter()}>Men</p><p onMouseEnter={()=>handleMouseEnter()}>Women</p><p onMouseEnter={()=>handleMouseEnter()}>kids</p></div>
+                <div className={seeMore?styles.navBarSeeMore:styles.seeMoreHide} onMouseLeave={()=>handleMouseLeave()}>
+                    <div className={styles.seeMoreOptions}>
+                      <h3 >categoria</h3>
+                      <h4 >categoria 1</h4>
+                      <h4 >categoria 2</h4>
+                      <h4 >categoria 3</h4>
+                      <h4 >categoria 4</h4>
+                    </div>
+                    <div className={styles.seeMoreOptions}>
+                      <h3>tipo de producto</h3>
+                      <h4>tipo de producto 1</h4>
+                      <h4>tipo de producto 2</h4>
+                      <h4>tipo de producto 3</h4>
+                      <h4>tipo de producto 4</h4>
+                    </div>
                 </div>
-                <div className={styles.seeMoreOptions}>
-                <h3>tipo de producto</h3>
-                  <h4>tipo de producto 1</h4>
-                  <h4>tipo de producto 2</h4>
-                  <h4>tipo de producto 3</h4>
-                  <h4>tipo de producto 4</h4>
-                </div>
-              </div>
-             </> 
+             </div> 
             ):(<></>)
             }
           </div>
