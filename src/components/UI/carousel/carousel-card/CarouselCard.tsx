@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from "./carousel.module.css";
+import styles from "./carouselCard.module.css";
 
 interface ICarouselCard{
     element:{image:string;

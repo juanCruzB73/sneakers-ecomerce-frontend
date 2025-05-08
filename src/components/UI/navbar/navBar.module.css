@@ -54,6 +54,9 @@
 .navBarSearchContainer svg{
     font-size: 1rem;
 }
+.navBarSearchContainer svg:hover{
+    cursor: pointer;
+}
 @media (min-width: 768px){
     .navBarSearchOptionsContainerWide{
         display: flex;

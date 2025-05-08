@@ -15,24 +15,32 @@ interface ICarousel{
 
 
 export const Carousel:FC<ICarousel> = ({toList}) => {
-    const [index, setIndex] = useState(0);
+    const [startIndex, setStartIndex] = useState(0);
+    const visibleItems=3;
 
     const handlePrev = () => {
-        setIndex((prev) => (prev === 0 ? toList.length - 1 : prev - 1));
+      setStartIndex((prev) => (prev === 0 ? toList.length - 1 : prev - 1));
       };
     
       const handleNext = () => {
-        setIndex((prev) => (prev + 1) % toList.length);
+        setStartIndex((prevIndex) => (prevIndex + visibleItems) % toList.length);
+      };
+
+      const getVisibleItems=()=>{
+        return toList.slice(startIndex,startIndex+visibleItems).length === visibleItems ?
+        toList.slice(startIndex,startIndex+visibleItems):
+        [...toList.slice(startIndex),
+          ...toList.slice(0,(startIndex+visibleItems)%toList.length)
+        ]
       };
 
   return (
     <div className={styles.carouselMainContainer}>
         <button onClick={handlePrev}>⟨ Prev</button>
       {
-        //toList.map(element=>(
-            //<CarouselCard element={element} />
-        //))
-        <CarouselCard element={toList[index]} />
+        getVisibleItems().map(element=>(
+            <CarouselCard element={element} />
+        ))
       }
       <button onClick={handleNext}>Next ⟩</button>
     </div>

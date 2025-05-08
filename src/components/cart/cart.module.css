@@ -1,0 +1,31 @@
+.cartViewProducts{
+    display: flex;
+    justify-content: space-around;
+    height: 50vh;
+}
+.cartTable{
+    background-color: rgba(153, 152, 152, 0.5);
+    margin: 2rem 0px;
+}
+.cartTableTitles{
+    background-color: black;
+    color: white;
+}
+.cartPaymentInformation{
+    background-color: rgba(153, 152, 152, 0.5);;
+    color: black;
+    display: flex;
+}
+.cartInformation{
+    width: 100%;
+}
+.cartInformation h1{
+    background-color: black;
+    width: 100%;
+    color: white;
+    padding: 0px;
+    margin: 0px;
+}
+.cartInformation h3{
+    margin: 1rem;
+}

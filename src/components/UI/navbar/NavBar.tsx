@@ -5,6 +5,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSearch } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 export const NavBar = () => {
@@ -12,6 +13,8 @@ export const NavBar = () => {
     const [showHamburgerButton,setShowHamburgerButton]=useState(window.innerWidth < 768);
     const [isWide, setIsWide] = useState(window.innerWidth > 768);
     const [seeMore,setSeeMore]=useState(false);
+
+    const navigate=useNavigate();
 
     useEffect(()=>{
       console.log(window.innerWidth)
@@ -81,7 +84,7 @@ export const NavBar = () => {
           </div>
           <div className={styles.navBarSearchContainer}>
             {
-              !isWide ? (<><FaSearch /><IoPersonSharp /><FaCartShopping /></>): (<><input type="text" placeholder="Search" /><IoPersonSharp /><FaCartShopping /></>)
+              !isWide ? (<><FaSearch /><IoPersonSharp /><FaCartShopping onClick={()=>navigate("/cart")}/></>): (<><input type="text" placeholder="Search" /><IoPersonSharp /><FaCartShopping /></>)
             }
           </div>
       </div>

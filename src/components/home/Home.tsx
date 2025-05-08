@@ -19,6 +19,24 @@ const toListExample=[
     "description":"description 2",
     "price":4354
   },
+  {
+    "image":"image 3",
+    "title":"title 3",
+    "description":"description 3",
+    "price":76786
+  },
+  {
+    "image":"image 4",
+    "title":"title 4",
+    "description":"description 4",
+    "price":9380
+  },
+  {
+    "image":"image 5",
+    "title":"title 5",
+    "description":"description 5",
+    "price":792730
+  },
 ]
 
 export const Home=()=>{
