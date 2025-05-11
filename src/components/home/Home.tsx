@@ -4,6 +4,8 @@ import homeImage1 from "../../assets/man_shoes.jpg";
 import homeImage2 from "../../assets/jordansModel.jpg";
 import { Carousel } from "../UI/carousel/Carousel";
 import { Footer } from "../UI/footer/Footer";
+import { useEffect } from "react";
+import { startGetProducts } from "../../store/slices/product/productThunk";
 
 
 const toListExample=[
@@ -40,6 +42,13 @@ const toListExample=[
 ]
 
 export const Home=()=>{
+  useEffect(()=>{
+    const test=async()=>{
+      await startGetProducts();
+    }
+    test();
+  },[])
+
   return (
     <div className={style.homeMainContainer}>
         <NavBar/>
