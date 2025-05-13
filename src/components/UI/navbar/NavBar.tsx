@@ -84,7 +84,7 @@ export const NavBar = () => {
           </div>
           <div className={styles.navBarSearchContainer}>
             {
-              !isWide ? (<><FaSearch /><IoPersonSharp /><FaCartShopping onClick={()=>navigate("/cart")}/></>): (<><input type="text" placeholder="Search" /><IoPersonSharp /><FaCartShopping /></>)
+              !isWide ? (<><FaSearch /><IoPersonSharp /><FaCartShopping onClick={()=>navigate("/cart")}/></>): (<><input type="text" placeholder="Search" /><IoPersonSharp /><FaCartShopping onClick={()=>navigate("/cart")}/></>)
             }
           </div>
       </div>

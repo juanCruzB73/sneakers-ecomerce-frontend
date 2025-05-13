@@ -1,0 +1,26 @@
+.cartProductMainContainer{
+    display: flex;
+    justify-content: space-around;
+    padding: .2rem;
+    border: 1px solid black;
+    border-radius: .1rem;
+    margin: 1rem;
+    
+}
+.cartProductImgContainer{
+    width: 30%;
+    height: 30%;
+}
+.cartProductInfoContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 0.2rem;
+}
+.cartProductInfoContainer h4{
+    margin: 0px;
+    padding: 0px;
+}
+.cartProductButtons{
+    display: flex;
+    padding: 0.2rem;
+}

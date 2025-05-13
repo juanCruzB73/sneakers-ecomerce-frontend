@@ -1,4 +1,5 @@
 .footerMainContainer{
+    margin-top: 1rem;
     background-color: rgba(153, 152, 152, 0.5);
     padding: 1rem;
     min-width: 93%;
@@ -9,7 +10,7 @@
     width: 100%;
 }
 .footerImageContainer{
-    width: 25vw;
+    width: 15vw;
     height: 25vh;
 }
 .footerImageContainer img{

@@ -1,7 +1,8 @@
 .carouselCardMainContainer{
     display: flex;
     flex-direction: column;
-    height: 10%;
+    
+    background-color:rgba(153, 152, 152, 0.5) ;
 }
 .carouselCardMainContainer h4{
     padding: 0%;

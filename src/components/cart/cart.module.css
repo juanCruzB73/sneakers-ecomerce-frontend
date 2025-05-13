@@ -1,7 +1,7 @@
 .cartViewProducts{
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    height: 50vh;
 }
 .cartTable{
     background-color: rgba(153, 152, 152, 0.5);
@@ -10,22 +10,41 @@
 .cartTableTitles{
     background-color: black;
     color: white;
+    pad: 0.4rem;
 }
 .cartPaymentInformation{
+    margin-left: 1rem;
     background-color: rgba(153, 152, 152, 0.5);;
     color: black;
     display: flex;
+    width: 70%;
 }
 .cartInformation{
     width: 100%;
 }
 .cartInformation h1{
     background-color: black;
-    width: 100%;
     color: white;
     padding: 0px;
     margin: 0px;
+    padding: 1rem;
 }
 .cartInformation h3{
     margin: 1rem;
 }
+@media (min-width: 768px){
+    .cartContainer{
+        display: flex;
+        padding: 1rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .cartViewProducts{
+        width: 60%;
+    }
+    .cartPaymentInformation{
+    align-self: baseline;
+    width: 30%;
+}
+}
+@media (min-width: 1200px){}
