@@ -1,8 +1,9 @@
 .footerMainContainer{
     margin-top: 1rem;
-    background-color: rgba(153, 152, 152, 0.5);
+    background-color: black;
     padding: 1rem;
     min-width: 93%;
+    color: white;
 }
 .footerInfoContainer{
     display: flex;

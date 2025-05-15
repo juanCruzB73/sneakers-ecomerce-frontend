@@ -1,6 +1,7 @@
 import { CarouselCard } from '../UI/carousel/carousel-card/CarouselCard';
 import { Footer } from '../UI/footer/Footer';
 import { NavBar } from '../UI/navbar/NavBar';
+import { Wesits } from '../UI/weists/Wesits';
 import style from './catalogProduct.module.css';
 
 const toListExample=[
@@ -47,22 +48,7 @@ export const CatalogProduct = () => {
     <div className={style.catalogProductMainContainer}>
       <NavBar/>
       <div className={style.catalogProductContainer}>
-        <div className={style.catalogProductFilterContainer}>
-          <h3>Filtros</h3>
-          <ul>
-            <li>filter</li>
-            <li>filter</li>
-            <li>filter</li>
-            <li>filter</li>
-          </ul>
-          <h3>talles</h3>
-          <select name="" id="">
-            <option value="">XL</option>
-            <option value="">S</option>
-            <option value="">M</option>
-            <option value="">S</option>
-          </select>
-        </div>
+        <Wesits/>
         <div className={style.catalogProductProductsContainer}>
           <h2>categoria seleccionada</h2>
           <div className={style.CatalogProductListProducts}>

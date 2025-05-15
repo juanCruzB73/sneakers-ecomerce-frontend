@@ -14,7 +14,6 @@
 }
 .cartPaymentInformation{
     margin-left: 1rem;
-    background-color: rgba(153, 152, 152, 0.5);;
     color: black;
     display: flex;
     width: 70%;
@@ -23,8 +22,7 @@
     width: 100%;
 }
 .cartInformation h1{
-    background-color: black;
-    color: white;
+    color: black;
     padding: 0px;
     margin: 0px;
     padding: 1rem;

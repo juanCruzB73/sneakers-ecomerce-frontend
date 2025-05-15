@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { startGetProducts } from "../store/slices/product/productThunk"
 import { IProduct } from "../types/IProduct"
 import { CatalogProduct } from "../components/catalog-products/CatalogProduct"
+import { ProductDetail } from "../components/product-detail/ProductDetail"
 
 export const AppRouter = () => {
 
@@ -24,6 +25,7 @@ export const AppRouter = () => {
         <Route path="/" element={<Home/>}/>
         <Route path="/cart" element={<Cart items={products}/>}/>
         <Route path="/catalog" element={<CatalogProduct/>}/>
+        <Route path="/detailProduct/:id" element={<ProductDetail/>}/>
     </Routes>
   )
 }

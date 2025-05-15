@@ -8,9 +8,6 @@
     width: 100%;
     height: 60%;
 }
-.catalogProductFilterContainer ul{
-    list-style: none;
-}
 .CatalogProductListProducts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

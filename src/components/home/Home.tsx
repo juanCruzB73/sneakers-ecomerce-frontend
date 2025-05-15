@@ -9,38 +9,39 @@ import { startGetProducts } from "../../store/slices/product/productThunk";
 
 
 const toListExample=[
-  {
-    "image":"image 1",
-    "title":"title 1",
-    "description":"description 1",
-    "price":1312
-  },
-  {
-    "image":"image 2",
-    "title":"title 2",
-    "description":"description 2",
-    "price":4354
-  },
-  {
-    "image":"image 3",
-    "title":"title 3",
-    "description":"description 3",
-    "price":76786
-  },
-  {
-    "image":"image 4",
-    "title":"title 4",
-    "description":"description 4",
-    "price":9380
-  },
-  {
-    "image":"image 5",
-    "title":"title 5",
-    "description":"description 5",
-    "price":792730
-  },
-]
-
+    {
+        "productId":1,
+        "img":"img 1",
+        "productName":"productName 1",
+        "stock":2,
+        "weist":"L",
+        "price":{salePrice:1312}
+      },
+      {
+        "productId":2,
+        "img":"img 2",
+        "productName":"productName 2",
+        "stock":2,
+        "weist":"L",
+        "price":{salePrice:1312}
+      },
+      {
+        "productId":3,
+        "img":"img 3",
+        "productName":"productName 3",
+        "stock":4,
+        "weist":"L",
+        "price":{salePrice:1312}
+      },
+      {
+        "productId":4,
+        "img":"img 4",
+        "productName":"productName 4",
+        "stock":1,
+        "weist":"L",
+        "price":{salePrice:1312}
+      },
+  ]
 export const Home=()=>{
   useEffect(()=>{
     const test=async()=>{

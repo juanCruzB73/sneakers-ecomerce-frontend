@@ -56,7 +56,7 @@ export const NavBar = () => {
                 </div>
               </div>
           </div>
-          <div className={styles.navBarImageContainer}><img src={logo} alt="logo" /></div>
+          <div className={styles.navBarImageContainer} onClick={()=>navigate("/")}><img src={logo} alt="logo" /></div>
           <div className={styles.navBarSearchOptionsContainerWide} >        
             {
               !showHamburgerButton?(

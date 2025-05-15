@@ -9,39 +9,7 @@ import { CartProduct } from '../UI/cart-porduct/CartProduct';
 
 const toListExample=[
     {
-      "image":"image 1",
-      "title":"title 1",
-      "description":"description 1",
-      "price":1312
-    },
-    {
-      "image":"image 2",
-      "title":"title 2",
-      "description":"description 2",
-      "price":4354
-    },
-    {
-      "image":"image 3",
-      "title":"title 3",
-      "description":"description 3",
-      "price":76786
-    },
-    {
-      "image":"image 4",
-      "title":"title 4",
-      "description":"description 4",
-      "price":9380
-    },
-    {
-      "image":"image 5",
-      "title":"title 5",
-      "description":"description 5",
-      "price":792730
-    },
-  ]
-
-const toListExampleCart=[
-    {
+        "productId":1,
         "img":"img 1",
         "productName":"productName 1",
         "stock":2,
@@ -49,6 +17,7 @@ const toListExampleCart=[
         "price":{salePrice:1312}
       },
       {
+        "productId":2,
         "img":"img 2",
         "productName":"productName 2",
         "stock":2,
@@ -56,6 +25,7 @@ const toListExampleCart=[
         "price":{salePrice:1312}
       },
       {
+        "productId":3,
         "img":"img 3",
         "productName":"productName 3",
         "stock":4,
@@ -63,6 +33,42 @@ const toListExampleCart=[
         "price":{salePrice:1312}
       },
       {
+        "productId":4,
+        "img":"img 4",
+        "productName":"productName 4",
+        "stock":1,
+        "weist":"L",
+        "price":{salePrice:1312}
+      },
+  ]
+
+const toListExampleCart=[
+    {
+        "productId":1,
+        "img":"img 1",
+        "productName":"productName 1",
+        "stock":2,
+        "weist":"L",
+        "price":{salePrice:1312}
+      },
+      {
+        "productId":2,
+        "img":"img 2",
+        "productName":"productName 2",
+        "stock":2,
+        "weist":"L",
+        "price":{salePrice:1312}
+      },
+      {
+        "productId":3,
+        "img":"img 3",
+        "productName":"productName 3",
+        "stock":4,
+        "weist":"L",
+        "price":{salePrice:1312}
+      },
+      {
+        "productId":4,
         "img":"img 4",
         "productName":"productName 4",
         "stock":1,
@@ -105,7 +111,7 @@ export const Cart:FC<ICart> = ({items}) => {
   return (
     <div className={styles.cartMainContainer}>
       <NavBar/>
-      <h1>Your Cart</h1>
+      <h1 style={{marginLeft:"1rem"}}>Your Cart</h1>
       <div className={styles.cartContainer}>
         <div className={styles.cartViewProducts}>
             {
@@ -124,7 +130,7 @@ export const Cart:FC<ICart> = ({items}) => {
             </div>
         </div>
       </div>
-      <h2>Continue buying</h2>
+      <h2 style={{marginLeft:"1rem"}}>Continue buying</h2>
       <Carousel toList={toListExample}/>
       <Footer/>
     </div>
