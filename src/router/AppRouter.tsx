@@ -10,6 +10,7 @@ import { ProductDetail } from "../components/product-detail/ProductDetail"
 export const AppRouter = () => {
 
   const [products,setProducts]=useState<IProduct[]>([]);
+  
 
   useEffect(()=>{
     const test=async()=>{

@@ -1,0 +1,70 @@
+.loginModalMainContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: brightness(90%) blur(2px);
+    color: white;
+}
+.loginModalContainer{
+    position: absolute;
+    top: 10%;
+    height: 25%;
+    width: 70%;
+    padding: 1rem;
+    background-color: white;
+    color: black;
+    border-radius: 1rem;
+}
+.loginModalOptionModal{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 1rem;
+}
+.loginModalOptionModal h2{
+    color: rgb(119, 119, 119);
+}
+.loginModalOptionModal h2:hover{
+    cursor: pointer;
+    color: black;
+}
+.loginModalInputsContainer{
+    display: flex;
+    align-items: center;
+    height: 40%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.loginModalInputsContainer input{
+    padding: .3rem;
+    width: 90%;
+}
+.singupModalInputContainer {
+    display: flex;
+    align-items: center;
+    height: 70%;
+    flex-direction: column;
+    justify-content: space-around; 
+}
+.singupModalInputContainer input{
+    padding: .3rem;
+    width: 90%;
+}
+.loginModalButtons{
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+}
+
+@media (min-width: 768px){
+    .loginModalContainer{
+        width: 35%;
+        height: 30%;
+        border-radius: 1rem;
+    }
+}
