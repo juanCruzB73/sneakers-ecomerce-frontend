@@ -14,7 +14,7 @@ export const LoginModal = () => {
   const dispatch = useDispatch<AppDispatch>();
   
   const handlePopUpLogin=()=>{
-    dispatch(onHandlePopUp({popUpType:"login",statusPopUp:!statusPopUp}))
+    dispatch(onHandlePopUp({popUpType:"",statusPopUp:!statusPopUp}))
   }
 
   return (

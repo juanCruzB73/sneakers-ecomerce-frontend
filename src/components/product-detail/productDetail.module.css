@@ -23,5 +23,11 @@
     .productDetailImgContainer{
         max-width: 60%;
         max-height: 50%;
-    }    
+    }
+    .productDetailInfoContainer{
+        padding: 2rem;
+    }
+    .ProductDetailWeists{
+        padding: 3rem;
+    }
 }

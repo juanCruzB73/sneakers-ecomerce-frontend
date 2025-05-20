@@ -4,6 +4,11 @@ import { NavBar } from '../UI/navbar/NavBar';
 import { Footer } from '../UI/footer/Footer';
 import { Wesits } from '../UI/weists/Wesits';
 import imgtest from '../../assets/man_shoes.jpg';
+import { AppDispatch } from '../../store/store';
+import { useDispatch } from 'react-redux';
+import { onHandlePopUp } from '../../store/slices/modals-states/modalSlice';
+import { useSelector } from 'react-redux';
+import { RootState } from '@reduxjs/toolkit/query';
 
 
 const product={
@@ -17,6 +22,11 @@ const product={
       }
 
 export const ProductDetail = () => {
+  const {statusPopUp,popUpType,actionPopUp} = useSelector((state:RootState)=>state.popUp);
+  const dispatch = useDispatch<AppDispatch>();
+  const handlePopUpProduct=()=>{
+      dispatch(onHandlePopUp({popUpType:"product",statusPopUp:!statusPopUp}))
+  }
   return (
     <div className={style.ProductDetailMainContainer}>
       <NavBar/>
@@ -29,6 +39,7 @@ export const ProductDetail = () => {
           <div className={style.productDetailButtons}>
             <h3 style={{color:"rgb(102, 102, 102)"}}>{product.productDescription}</h3>
             <button>Add to cart</button>
+            <button onClick={handlePopUpProduct}>Edit</button>
           </div>
         </div>
         <div className={style.ProductDetailWeists}>
