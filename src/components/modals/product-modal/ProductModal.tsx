@@ -14,14 +14,31 @@ export const ProductModal = () => {
   return (
     <div className={style.productModalMainContainer}>
       <div className={style.productModalContainer}>
-            <div>
-                <input type="text" />
-                <input type="text" />
+          <div className={style.productModalInputMainContainer}>
+            <div className={style.productModalInputContainer}>
+              <input type="text" placeholder='porduct name'/>
+              <input type="number" placeholder='precio'/>
+              <select name="">
+                <option value="">categoria</option>
+                <option value="">categoria</option>
+                <option value="">categoria</option>
+              </select>
             </div>
-            <div className={style.productModalButtons}>
-                <button type='button' onClick={handlePopUpProduct}>Cancel</button>
-                <button type='submit'>Submit</button>
+            <div className={style.productModalInputMainContainerDescription}>
+              <div className={style.productModalInputContainer}>
+                <input type="text" placeholder='description'/>
+                <div className={style.productModalImgInputContainer}>
+                <span>Select product image</span>
+                <input type="file" />
+              </div>
+              </div>
             </div>
+          </div>
+          
+          <div className={style.productModalButtons}>
+            <button type='button' onClick={handlePopUpProduct}>Cancel</button>
+            <button type='submit'>Submit</button>
+          </div>
       </div>
     </div>
   )
