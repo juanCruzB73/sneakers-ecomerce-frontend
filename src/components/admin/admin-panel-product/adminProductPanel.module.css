@@ -1,0 +1,17 @@
+.adminPanelProductMainContainer{
+
+}
+.adminPanelProductContainer{
+
+}
+.adminProductPanelTable{
+    background-color: rgb(172, 170, 170);
+}
+.adminProductPanelTableTitles{
+    background-color: black;
+    color: white;
+    
+}
+.adminProductPanelTableField{
+    padding: .6rem;
+}
