@@ -1,5 +1,43 @@
+import { IProduct } from "../../../types/IProduct";
+import { AppDispatch } from "../../store";
+import { onAddProduct, onCheckProducts, onClearMessage, onLoadProducts, onSeatMessage } from "./productSlice";
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const startGetProducts=async()=>{
-    const response = await fetch("http://localhost:8081/product");
-    const data=await response.json();
-    return data;
+    return async(dispatch:AppDispatch)=>{
+        try{
+            dispatch(onCheckProducts());
+            const response = await fetch(`${API_URL}/product`);
+            const data=await response.json();
+            dispatch(onLoadProducts(data));
+            dispatch(onClearMessage());
+        }catch(error){
+            dispatch(onSeatMessage("Error loading the products"));
+            throw error;
+        }
+    }
 };
+
+export const startSelectActiveProduct=async(product:IProduct)=>{
+    return async(dispatch:AppDispatch)=>{
+        try{
+            dispatch(onCheckProducts());
+            const response=await fetch(`${API_URL}/product`,{method:'POST'});
+            const data=await response.json();
+            dispatch(onAddProduct(data));
+            dispatch(onClearMessage());
+        }catch(error){
+            dispatch(onSeatMessage("Error creating the products"));
+            throw error;
+        }
+    }
+};
+
+
+
+/*
+    onClearMessage:(state)=>{
+        state.productMessage=null;
+    }
+*/
