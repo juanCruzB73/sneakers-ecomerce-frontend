@@ -1,4 +1,5 @@
 import { ICatalog } from "./ICatalog";
+import { IIMgs } from "./IMgs";
 import { IPrice } from "./IPrice";
 import { IProductDetail } from "./IProductDetail";
 import { IWeist } from "./IWeist";
@@ -12,8 +13,7 @@ export interface IProduct{
     stock:number;
     color:string;
     state:boolean;
-    img:string;
+    imgs:IIMgs[];
     sex:string;
     price:IPrice;
-
 }

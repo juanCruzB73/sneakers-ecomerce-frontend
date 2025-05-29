@@ -19,11 +19,11 @@ export const startGetProducts=async()=>{
     }
 };
 
-export const startSelectActiveProduct=async(product:IProduct)=>{
+export const startAddProduct=async(productIn:IProduct)=>{
     return async(dispatch:AppDispatch)=>{
         try{
             dispatch(onCheckProducts());
-            const response=await fetch(`${API_URL}/product`,{method:'POST'});
+            const response=await fetch(`${API_URL}/product`,{method:'POST',body:JSON.stringify(productIn)});
             const data=await response.json();
             dispatch(onAddProduct(data));
             dispatch(onClearMessage());
