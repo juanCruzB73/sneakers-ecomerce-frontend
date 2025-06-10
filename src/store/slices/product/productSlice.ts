@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IPopUp } from "../../../types/IPopUp";
-import type { PayloadAction } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit';
 import { IProduct } from "../../../types/IProduct";
 
 interface IProductSlice{
@@ -17,12 +16,6 @@ const initialState: IProductSlice = {
     isLoadingProducts:false,
     productMessage:null
     //actionPopUp:"",
-}
-
-export interface IOnOpenPopUpInterface{
-    statusPopUp:boolean,
-    popUpType:string,
-    //actionPopUp:string,
 }
 
 export const productSlice = createSlice({

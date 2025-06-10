@@ -1,16 +1,26 @@
 .carouselCardMainContainer{
     display: flex;
     flex-direction: column;
-    
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 40vh;
     background-color:rgba(153, 152, 152, 0.5) ;
 }
 .carouselCardMainContainer h4{
     padding: 0%;
     margin: 5px;
+    font-size: 1rem;
 }
 .carouselCardMainContainer h3{
     padding: 0%;
     margin: 5px;
+    font-size: 1rem;
+}
+.carouselCardImageContainer{
+    align-self: center;
+    max-width: 20vw;
+    max-height: 30vh;
 }
 .carouselCardImageContainer img{
     margin: 5px;

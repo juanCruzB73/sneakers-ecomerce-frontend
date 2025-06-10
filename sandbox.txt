@@ -1,0 +1,1 @@
+const {selectedCredential} = useSelector((state:RootState)=>state.credential)

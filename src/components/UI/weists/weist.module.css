@@ -1,5 +1,28 @@
+.catalogProductFilterContainer{
+    display: flex;
+    flex-direction: column;
+}
 .catalogProductFilterContainer ul{
     list-style: none;
     margin: 0px;
     padding: 0px;
+}
+.catalogProductFilterContainer select{
+    width: 25%;
+}
+.catalogProductFilterContainer button{
+    margin-top: .5rem ;
+    padding: .3rem;
+    width: 25%;
+}
+@media (min-width: 768px){
+    .catalogProductFilterContainer{
+        margin-right: 1rem;
+    }
+   .catalogProductFilterContainer select{
+    width: 10vw;
+   }
+   .catalogProductFilterContainer button{
+    width: 10vw;
+   }
 }

@@ -1,10 +1,11 @@
-import { IAdress } from "./IAdres";
-import { IDiscount } from "./IDiscount";
+import { IAdress } from "./IAddress";
+import { IUser } from "./IUser";
 
 export interface IOrder{
     orderId:number;
+    date:string;
     total:number;
-    descuentos:IDiscount[];
-    purchaingDate:string;
-    adress:IAdress;
+    addres:IAdress;
+    active:boolean;
+    user:IUser;
 }

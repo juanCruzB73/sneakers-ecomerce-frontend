@@ -5,6 +5,10 @@
     margin-left: 1rem;
     padding: 1rem;
 }
+.caruselCardsListContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr);
+}
 .carouselMainContainer button{
     height: 10vh;
 }

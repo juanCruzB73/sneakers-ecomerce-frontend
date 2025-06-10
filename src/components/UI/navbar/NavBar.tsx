@@ -21,13 +21,14 @@ export const NavBar = () => {
     const [showHamburgerButton,setShowHamburgerButton]=useState(window.innerWidth < 768);
     const [isWide, setIsWide] = useState(window.innerWidth > 768);
     const [seeMore,setSeeMore]=useState(false);
+    const [sex,setSex]=useState("");
+    const [category,setCategory]=useState("");
 
-    const {statusPopUp,popUpType,actionPopUp} = useSelector((state:RootState)=>state.popUp);
+    const {statusPopUp} = useSelector((state:RootState)=>state.popUp);
 
     const navigate=useNavigate();
 
     useEffect(()=>{
-      console.log(window.innerWidth)
       const handleSize=()=>{
         setIsWide(window.innerWidth > 768);
         setHamburggerButton(false);
@@ -53,21 +54,24 @@ export const NavBar = () => {
       <div className={styles.navBarMainContainer}>
           {showHamburgerButton?<GiHamburgerMenu style={{padding:"1rem"}} onClick={()=>{setHamburggerButton(!hamburgerButton)}}/>:<></>}
           <div className={hamburgerButton ? styles.navBarSearchOptionsContainer : styles.navBarSearchOptionsContainerHide }>        
-              <div className={styles.navBarSearchOptions}><p onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>Men</p><p onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>Women</p><p onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>kids</p></div>
+              <div className={styles.navBarSearchOptions}><p onMouseEnter={()=>{handleMouseEnter();setSex("male")}} onMouseLeave={()=>handleMouseLeave()}>Men</p><p onMouseEnter={()=>{handleMouseEnter();setSex("female")}} onMouseLeave={()=>handleMouseLeave()}>Women</p><p onMouseEnter={()=>{handleMouseEnter();setSex("kid")}} onMouseLeave={()=>handleMouseLeave()}>kids</p></div>
               <div className={seeMore?styles.navBarSeeMore:styles.seeMoreHide}  onMouseEnter={()=>handleMouseEnter()}>
                 <div className={styles.seeMoreOptions} onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>
-                  <h3>categoria</h3>
-                  <h4>categoria 1</h4>
-                  <h4>categoria 2</h4>
-                  <h4>categoria 3</h4>
-                  <h4>categoria 4</h4>
+                  <h3>Categories</h3>
+                  <h4 onClick={()=>navigate(`/filters/${sex}/sport`)}>Sport</h4>
+                  <h4 onClick={()=>navigate(`/filters/${sex}/fashion`)}>Fashion</h4>
+                  <h4 onClick={()=>navigate(`/filters/${sex}/urban`)}>Urban</h4>
                 </div>
                 <div className={styles.seeMoreOptions}>
-                <h3>tipo de producto</h3>
-                  <h4>tipo de producto 1</h4>
-                  <h4>tipo de producto 2</h4>
-                  <h4>tipo de producto 3</h4>
-                  <h4>tipo de producto 4</h4>
+                <h3>Product types</h3>
+                  <h4 onClick={()=>navigate(`/filters/${sex}/football`)}>Football</h4>
+                  <h4 onClick={()=>navigate(`/filters/${sex}/basketball`)}>Basketball</h4>
+                  <h4 onClick={()=>navigate(`/filters/${sex}/running`)}>Running</h4>
+                  <h4 onClick={()=>navigate(`/filters/${sex}/heels`)}>Heels</h4>
+                  <h4 onClick={()=>navigate(`/filters/${sex}/boots`)}>Boots</h4>
+                  <h4 onClick={()=>navigate(`/filters/${sex}/dress`)}>Dress</h4>
+                  <h4 onClick={()=>navigate(`/filters/${sex}/sandals`)}>Sandals</h4>
+                  <h4 onClick={()=>navigate(`/filters/${sex}/slipsOn`)}>Slip-ons</h4>
                 </div>
               </div>
           </div>
@@ -76,21 +80,24 @@ export const NavBar = () => {
             {
               !showHamburgerButton?(
               <div className={styles.navBarSearchOptionsContainerOptionsWide}>
-                <div className={styles.navBarSearchOptionsWide}><p onMouseEnter={()=>handleMouseEnter()}>Men</p><p onMouseEnter={()=>handleMouseEnter()}>Women</p><p onMouseEnter={()=>handleMouseEnter()}>kids</p></div>
+                <div className={styles.navBarSearchOptionsWide}><p onMouseEnter={()=>{handleMouseEnter();setSex("male")}}>Men</p><p onMouseEnter={()=>{handleMouseEnter();setSex("female")}}>Women</p><p onMouseEnter={()=>{handleMouseEnter();setSex("kid")}}>kids</p></div>
                 <div className={seeMore?styles.navBarSeeMore:styles.seeMoreHide} onMouseLeave={()=>handleMouseLeave()}>
                     <div className={styles.seeMoreOptions}>
-                      <h3 >categoria</h3>
-                      <h4 >categoria 1</h4>
-                      <h4 >categoria 2</h4>
-                      <h4 >categoria 3</h4>
-                      <h4 >categoria 4</h4>
+                      <h3 >Categories</h3>
+                      <h4 onClick={()=>navigate(`/filters/${sex}/sport`)}>Sport</h4>
+                      <h4 onClick={()=>navigate(`/filters/${sex}/fashion`)}>Fashion</h4>
+                      <h4 onClick={()=>navigate(`/filters/${sex}/urban`)}>Urban</h4>
                     </div>
                     <div className={styles.seeMoreOptions}>
-                      <h3>tipo de producto</h3>
-                      <h4>tipo de producto 1</h4>
-                      <h4>tipo de producto 2</h4>
-                      <h4>tipo de producto 3</h4>
-                      <h4>tipo de producto 4</h4>
+                      <h3>Product types</h3>
+                        <h4 onClick={()=>navigate(`/filters/${sex}/football`)}>Football</h4>
+                        <h4 onClick={()=>navigate(`/filters/${sex}/basketball`)}>Basketball</h4>
+                        <h4 onClick={()=>navigate(`/filters/${sex}/running`)}>Running</h4>
+                        <h4 onClick={()=>navigate(`/filters/${sex}/heels`)}>Heels</h4>
+                        <h4 onClick={()=>navigate(`/filters/${sex}/boots`)}>Boots</h4>
+                        <h4 onClick={()=>navigate(`/filters/${sex}/dress`)}>Dress</h4>
+                        <h4 onClick={()=>navigate(`/filters/${sex}/sandals`)}>Sandals</h4>
+                        <h4 onClick={()=>navigate(`/filters/${sex}/slipsOn`)}>Slip-ons</h4>
                     </div>
                 </div>
              </div> 

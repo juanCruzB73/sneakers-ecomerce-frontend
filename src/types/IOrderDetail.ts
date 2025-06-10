@@ -1,7 +1,8 @@
-import { IOrder } from "./IOrder";
+import { IProduct } from "./IProduct";
 
 export interface IOrderDetail{
     orderDetailId:number;
-    order:IOrder;
-    amount:number
+    amount:number;
+    active:boolean;
+    produc:IProduct;
 }

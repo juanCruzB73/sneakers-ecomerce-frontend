@@ -1,60 +1,51 @@
+import { useSelector } from 'react-redux';
 import { CarouselCard } from '../UI/carousel/carousel-card/CarouselCard';
 import { Footer } from '../UI/footer/Footer';
 import { NavBar } from '../UI/navbar/NavBar';
 import { Wesits } from '../UI/weists/Wesits';
 import style from './catalogProduct.module.css';
+import { RootState } from '@reduxjs/toolkit/query';
+import { IProduct } from '../../types/IProduct';
+import { CardCatalog } from '../UI/card-catalog/cardCatalog';
+import { useEffect, useState } from 'react';
+import { LiaFilterSolid } from 'react-icons/lia';
+import { useParams } from 'react-router-dom';
+import { getByFilters, getBySubFilters } from '../../store/slices/product/productThunk';
 
-const toListExample=[
-    {
-      "image":"image 1",
-      "title":"title 1",
-      "description":"description 1",
-      "price":1312
-    },
-    {
-      "image":"image 2",
-      "title":"title 2",
-      "description":"description 2",
-      "price":4354
-    },
-    {
-      "image":"image 3",
-      "title":"title 3",
-      "description":"description 3",
-      "price":76786
-    },
-    {
-      "image":"image 4",
-      "title":"title 4",
-      "description":"description 4",
-      "price":9380
-    },
-    {
-      "image":"image 5",
-      "title":"title 5",
-      "description":"description 5",
-      "price":792730
-    },
-    {
-      "image":"image 6",
-      "title":"title 6",
-      "description":"description 6",
-      "price":792730
-    },
-  ]
 
 export const CatalogProduct = () => {
+
+  const {products} = useSelector((state:RootState)=>state.product)
+  const [seeMore,setSeeMore]=useState(false);
+
+  const [productsFiltered,setProductsFiltered]=useState<IProduct[]>([]);
+
+  const { sex, category } = useParams();
+
+  useEffect(()=>{
+    const productsWithFilters=async()=>{
+      if(category=="sport" || category=="fashion" || category=="urban"){
+        const data=await getByFilters(sex!,category);
+        setProductsFiltered(data);
+      }else{
+        const data=await getBySubFilters(sex!,category!);
+        setProductsFiltered(data);
+      }
+    };
+    productsWithFilters();
+  },[sex, category])
+
   return (
     <div className={style.catalogProductMainContainer}>
       <NavBar/>
       <div className={style.catalogProductContainer}>
-        <Wesits/>
+        {seeMore?<Wesits/>:<></>}
         <div className={style.catalogProductProductsContainer}>
-          <h2>categoria seleccionada</h2>
+          <h2>{category} for {sex} <LiaFilterSolid onClick={()=>setSeeMore(!seeMore)}/></h2>
           <div className={style.CatalogProductListProducts}>
             {
-              toListExample.map(product=>(
-                <CarouselCard element={product}/>
+              productsFiltered.map((product:IProduct)=>(
+                <CardCatalog product={product}/>
               ))
             }
           </div>
