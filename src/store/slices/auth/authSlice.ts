@@ -4,9 +4,10 @@ import { IUser } from '../../../types/IUser';
 
 
 export interface IUserAuth{
-    userId?:number|null;
+    userId?:string|null;
     username:string;
     email:string;
+    userType:string;
 }
 
 export interface IAuthState {
@@ -28,6 +29,7 @@ const initialState: IAuthState = {
         username:"",
         email: "",
         userId:null,
+        userType:"",
     },
     errorMessage:null,
 }
@@ -44,6 +46,7 @@ export const authSlice = createSlice({
             username:"",
             email: "",
             userId:null,
+            userType:"",
         },
         state.errorMessage=null
     },
@@ -58,6 +61,7 @@ export const authSlice = createSlice({
             username:"",
             email: "",
             userId:null,
+            userType:"",
         },
         state.errorMessage=null
     }

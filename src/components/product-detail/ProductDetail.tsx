@@ -45,7 +45,7 @@ export const ProductDetail = () => {
           <h3>Color: {activeProduct.color}</h3>
           <h3>Category: {activeProduct.productType}</h3>
           <h3>Product Type: {activeProduct.productSubType}</h3>
-          <h3>{activeProduct.price.salePrice}</h3>
+          <h3>$ {activeProduct.price.salePrice}</h3>
           <div className={style.productDetailImgContainer}><img src={activeProduct.imgs[0].imgUrl} alt={activeProduct.imgs[0].imgUrl} /></div>
           <div className={style.productDetailButtons}>
             <h3 style={{color:"rgb(102, 102, 102)"}}>{activeProduct.description}</h3>

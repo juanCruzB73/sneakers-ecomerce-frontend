@@ -19,5 +19,5 @@ export const useForm=<T extends FormValue>(initialState:T)=>{
     const onResetForm=()=>{
       setFormValue(initialState)
     }
-  return {...formValues,formValues,onInputChange,onResetForm};
+  return {...formValues,formValues,onInputChange,onResetForm,setFormValue};
 };

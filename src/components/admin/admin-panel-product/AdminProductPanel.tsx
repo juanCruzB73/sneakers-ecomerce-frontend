@@ -5,51 +5,33 @@ import style from './adminProductPanel.module.css';
 import { AdminProductPanelCard } from './adminProductPanelCard/AdminProductPanelCard';
 import { IoMdEye } from 'react-icons/io';
 import { FaTrashCan } from 'react-icons/fa6';
+import { useSelector } from 'react-redux';
+import { IProduct } from '../../../types/IProduct';
+import { CiSquarePlus } from 'react-icons/ci';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../../store/store';
+import { onHandlePopUp } from '../../../store/slices/modals-states/modalSlice';
 
-const toListExample=[
-    {
-        "productId":1,
-        "img":"img 1",
-        "state":true,
-        "productName":"productName 1",
-        "productType":"asdw",
-        "weist":"L",
-        "price":{salePrice:1312}
-      },
-      {
-        "productId":2,
-        "img":"img 2",
-        "state":true,
-        "productName":"productName 2",
-        "productType":"asdw",
-        "weist":"L",
-        "price":{salePrice:1312}
-      },
-      {
-        "productId":3,
-        "img":"img 3",
-        "state":false,
-        "productName":"productName 3",
-        "productType":"asdw",
-        "weist":"L",
-        "price":{salePrice:1312}
-      },
-      {
-        "productId":4,
-        "img":"img 4",
-        "state":false,
-        "productName":"productName 4",
-        "productType":"asdw",
-        "weist":"L",
-        "price":{salePrice:1312}
-      },
-  ]
+
 
 interface IAdminProductPanle{
     
 }
 
 export const AdminProductPanel:FC<IAdminProductPanle> = () => {
+
+  const {products} = useSelector((state:RootState)=>state.product);
+  const {statusPopUp} = useSelector((state:RootState)=>state.popUp);
+
+
+  const navigate=useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handlePopUp=()=>{
+    dispatch(onHandlePopUp({popUpType:"product",statusPopUp:!statusPopUp}))
+  }
+  
   return (
     <div className={style.adminPanelProductMainContainer}>
       <NavBar/>
@@ -64,11 +46,14 @@ export const AdminProductPanel:FC<IAdminProductPanle> = () => {
                     <th className={style.adminProductPanelTableField}>State</th>
                     <th className={style.adminProductPanelTableField}>Actions</th>
                 </tr>
-            {toListExample.map((product) => (
+            {products.map((product:IProduct) => (
              <AdminProductPanelCard product={product} key={product.productId}/> 
             ))}
         </thead>
       </table>
+      </div>
+      <div className={style.adminPanelProductContainerButtons}>
+        <button onClick={()=>handlePopUp()}>Add Product <CiSquarePlus /></button>
       </div>
       <Footer/>
     </div>

@@ -13,7 +13,6 @@
 .productModalContainer{
     position: absolute;
     top: 10%;
-    height: 25%;
     width: 70%;
     padding: 1rem;
     background-color: white;
@@ -38,7 +37,23 @@
 }
 .productModalInputContainer select{
     width: 80%;
-    margin: .5rem;
+    margin: .5rem .5rem;
+    padding: .3rem;
+    border-radius: .4rem;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: .8rem;
+}
+.productModalButtons button{
+    width: 20vw;
+    margin-right: 10px;
+    padding: .3rem;
+    border-radius: .4rem;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: .8rem;
 }
 .productModalImgInputContainer{
     display: flex;

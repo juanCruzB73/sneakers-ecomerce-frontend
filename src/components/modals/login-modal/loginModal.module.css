@@ -60,7 +60,26 @@
     width: 70%;
     justify-content: space-around;
 }
-
+.loginModalButtons button{
+    width: 20vw;
+    margin-right: 10px;
+    padding: .3rem;
+    border-radius: .4rem;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: .8rem;
+}
+.loginModalProfileButtons button{
+    width: 20vw;
+    margin-right: 10px;
+    padding: .3rem;
+    border-radius: .4rem;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: .8rem;
+}
 @media (min-width: 768px){
     .loginModalContainer{
         width: 35%;

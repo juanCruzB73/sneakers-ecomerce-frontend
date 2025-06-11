@@ -27,6 +27,18 @@ export const NavBar = () => {
     const {statusPopUp} = useSelector((state:RootState)=>state.popUp);
 
     const navigate=useNavigate();
+    const productCategories = ['sport', 'fashion', 'urban'];
+    const productTypes = [
+      'football',
+      'basketball',
+      'running',
+      'heels',
+      'boots',
+      'dress',
+      'sandals',
+      'slipsOn',
+    ];
+
 
     useEffect(()=>{
       const handleSize=()=>{
@@ -58,20 +70,17 @@ export const NavBar = () => {
               <div className={seeMore?styles.navBarSeeMore:styles.seeMoreHide}  onMouseEnter={()=>handleMouseEnter()}>
                 <div className={styles.seeMoreOptions} onMouseEnter={()=>handleMouseEnter()} onMouseLeave={()=>handleMouseLeave()}>
                   <h3>Categories</h3>
-                  <h4 onClick={()=>navigate(`/filters/${sex}/sport`)}>Sport</h4>
-                  <h4 onClick={()=>navigate(`/filters/${sex}/fashion`)}>Fashion</h4>
-                  <h4 onClick={()=>navigate(`/filters/${sex}/urban`)}>Urban</h4>
+                  {productCategories.map((type) => (
+                  <h4 key={type} onClick={() => navigate(`/filters/${sex}/${type}`)}>{type}</h4>
+                  ))}
                 </div>
                 <div className={styles.seeMoreOptions}>
-                <h3>Product types</h3>
-                  <h4 onClick={()=>navigate(`/filters/${sex}/football`)}>Football</h4>
-                  <h4 onClick={()=>navigate(`/filters/${sex}/basketball`)}>Basketball</h4>
-                  <h4 onClick={()=>navigate(`/filters/${sex}/running`)}>Running</h4>
-                  <h4 onClick={()=>navigate(`/filters/${sex}/heels`)}>Heels</h4>
-                  <h4 onClick={()=>navigate(`/filters/${sex}/boots`)}>Boots</h4>
-                  <h4 onClick={()=>navigate(`/filters/${sex}/dress`)}>Dress</h4>
-                  <h4 onClick={()=>navigate(`/filters/${sex}/sandals`)}>Sandals</h4>
-                  <h4 onClick={()=>navigate(`/filters/${sex}/slipsOn`)}>Slip-ons</h4>
+                  <h3>Product types</h3>
+                  {productTypes.map((type) => (
+                    <h4 key={type} onClick={() => navigate(`/filters/${sex}/${type}`)}>
+                    {type.charAt(0).toUpperCase() + type.slice(1)}
+                    </h4>
+                  ))}
                 </div>
               </div>
           </div>
@@ -84,20 +93,17 @@ export const NavBar = () => {
                 <div className={seeMore?styles.navBarSeeMore:styles.seeMoreHide} onMouseLeave={()=>handleMouseLeave()}>
                     <div className={styles.seeMoreOptions}>
                       <h3 >Categories</h3>
-                      <h4 onClick={()=>navigate(`/filters/${sex}/sport`)}>Sport</h4>
-                      <h4 onClick={()=>navigate(`/filters/${sex}/fashion`)}>Fashion</h4>
-                      <h4 onClick={()=>navigate(`/filters/${sex}/urban`)}>Urban</h4>
+                      {productCategories.map((type) => (
+                      <h4 key={type} onClick={() => navigate(`/filters/${sex}/${type}`)}>{type}</h4>
+                      ))}
                     </div>
                     <div className={styles.seeMoreOptions}>
                       <h3>Product types</h3>
-                        <h4 onClick={()=>navigate(`/filters/${sex}/football`)}>Football</h4>
-                        <h4 onClick={()=>navigate(`/filters/${sex}/basketball`)}>Basketball</h4>
-                        <h4 onClick={()=>navigate(`/filters/${sex}/running`)}>Running</h4>
-                        <h4 onClick={()=>navigate(`/filters/${sex}/heels`)}>Heels</h4>
-                        <h4 onClick={()=>navigate(`/filters/${sex}/boots`)}>Boots</h4>
-                        <h4 onClick={()=>navigate(`/filters/${sex}/dress`)}>Dress</h4>
-                        <h4 onClick={()=>navigate(`/filters/${sex}/sandals`)}>Sandals</h4>
-                        <h4 onClick={()=>navigate(`/filters/${sex}/slipsOn`)}>Slip-ons</h4>
+                        {productTypes.map((type) => (
+                          <h4 key={type} onClick={() => navigate(`/filters/${sex}/${type}`)}>
+                          {type.charAt(0).toUpperCase() + type.slice(1)}
+                          </h4>
+                        ))}
                     </div>
                 </div>
              </div> 

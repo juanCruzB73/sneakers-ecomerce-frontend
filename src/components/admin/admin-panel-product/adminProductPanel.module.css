@@ -2,7 +2,7 @@
 
 }
 .adminPanelProductContainer{
-
+    padding: 1rem;
 }
 .adminProductPanelTable{
     background-color: rgb(172, 170, 170);
@@ -14,4 +14,24 @@
 }
 .adminProductPanelTableField{
     padding: .6rem;
+}
+.adminPanelProductContainerButtons{
+    padding: 1rem;
+}
+.adminPanelProductContainerButtons button{
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 25vw;
+    margin-right: 10px;
+    padding: .3rem;
+    border-radius: .4rem;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: .8rem;
+}
+.adminPanelProductContainerButtons svg{
+    font-size: 1.5rem;
 }

@@ -4,6 +4,7 @@ import { IProduct } from "../../../types/IProduct";
 
 interface IProductSlice{
     products:IProduct[];
+    activeProducts:IProduct[];
     activeProduct:IProduct|null;
     isLoadingProducts:boolean;
     productMessage:string|null,
@@ -12,6 +13,7 @@ interface IProductSlice{
 
 const initialState: IProductSlice = {
     products:[],
+    activeProducts:[],
     activeProduct:null,
     isLoadingProducts:false,
     productMessage:null
@@ -30,7 +32,12 @@ export const productSlice = createSlice({
         state.isLoadingProducts=false;
         state.productMessage=null
     },
-    onSelectActiveProduct:(state,action:PayloadAction<IProduct>)=>{
+    onLoadActiveProducts:(state,action:PayloadAction<IProduct[]>)=>{
+        state.activeProducts=action.payload;
+        state.isLoadingProducts=false;
+        state.productMessage=null
+    },
+    onSelectActiveProduct:(state,action:PayloadAction<IProduct|null>)=>{
         state.activeProduct=action.payload;
         state.isLoadingProducts=false;
         state.productMessage=null
@@ -68,6 +75,6 @@ export const productSlice = createSlice({
   })
   
   // Action creators are generated for each case reducer function
-  export const { onCheckProducts,onSelectActiveProduct,onAddProduct,onClearMessage,onLoadProducts,onSeatMessage,onUpdateProduct,onDeleteProduct } = productSlice.actions
+  export const { onCheckProducts,onLoadActiveProducts,onSelectActiveProduct,onAddProduct,onClearMessage,onLoadProducts,onSeatMessage,onUpdateProduct,onDeleteProduct } = productSlice.actions
   
   export default productSlice.reducer
