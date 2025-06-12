@@ -189,12 +189,6 @@ const {
               <option value="female">female</option>
             </select>
 
-            <WeistMultiSelect
-              selectedWeist={weist}
-              onChange={(newWeist: string[]) =>
-                setFormValue({ ...formValues, weist: newWeist })
-              }
-            />
           </div>
 
           <div className={style.productModalInputMainContainerDescription}>
@@ -205,6 +199,7 @@ const {
                 name="description"
                 value={description}
                 onChange={onInputChange}
+                style={{padding:"2.5rem",margin:"0px"}}
               />
               <div className={style.productModalImgInputContainer}>
                 <span>Select product image</span>
@@ -219,11 +214,16 @@ const {
                 />
                  
                   <img
-                    src={previewUrl && activeProduct ?previewUrl:""}
+                    src={previewUrl || ""}
                     alt="preview"
                     style={{ width: '100px', height: '100px', objectFit: 'cover' }}
                   />
-                
+                <WeistMultiSelect
+              selectedWeist={weist}
+              onChange={(newWeist: string[]) =>
+                setFormValue({ ...formValues, weist: newWeist })
+              }
+            />
               </div>
             </div>
           </div>

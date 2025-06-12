@@ -21,6 +21,25 @@
 .cartInformation{
     width: 100%;
 }
+.cartInformation button{
+    width: 20vw;
+    padding: .3rem;
+    border-radius: .4rem;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: .8rem;
+}
+.cartInformation select{
+    width: 25vw;
+    margin: 10px;
+    padding: .3rem;
+    border-radius: .4rem;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: .8rem;
+}
 .cartInformation h1{
     color: black;
     padding: 0px;
@@ -35,10 +54,21 @@
         display: flex;
         padding: 1rem;
         justify-content: space-between;
-        align-items: center;
+        height: 70%;
+        
     }
     .cartViewProducts{
-        width: 60%;
+        width: 50%;
+    }
+    .cartInformation{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .cartPaymentInformation{
+        height: 60vh;
+        width: 100%;
     }
     .cartPaymentInformation{
     align-self: baseline;

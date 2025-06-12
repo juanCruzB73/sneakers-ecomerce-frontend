@@ -24,3 +24,9 @@
     display: flex;
     padding: 0.2rem;
 }
+.cartProductImgContainer {
+    width: 20vw;
+}
+.cartProductImgContainer img{
+    width: 100%;
+}

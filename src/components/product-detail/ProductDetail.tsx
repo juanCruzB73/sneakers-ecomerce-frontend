@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import style from './productDetail.module.css';
 import { NavBar } from '../UI/navbar/NavBar';
 import { Footer } from '../UI/footer/Footer';
@@ -10,11 +10,15 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@reduxjs/toolkit/query';
 import { useParams } from 'react-router-dom';
 import { startSelectActiveProduct } from '../../store/slices/product/productThunk';
+import { onAddCartProduct } from '../../store/slices/cart/cartSlice';
 
 export const ProductDetail = () => {
 
   const {statusPopUp} = useSelector((state:RootState)=>state.popUp);
   const {activeProduct} = useSelector((state:RootState)=>state.product);
+
+  const [selectedSize, setSelectedSize] = useState("M");
+  const [selectedAmount, setSelectedAmount] = useState("1");
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -34,6 +38,9 @@ export const ProductDetail = () => {
   if (!activeProduct) {
     return <div>Loading product details...</div>;
   }
+  const handleAddToCart = () => {
+    dispatch(onAddCartProduct({...activeProduct,weist:selectedSize,price:activeProduct.price.salePrice,selectedAmount:selectedAmount}))
+  };
 
   return (
     <div className={style.ProductDetailMainContainer}>
@@ -49,17 +56,23 @@ export const ProductDetail = () => {
           <div className={style.productDetailImgContainer}><img src={activeProduct.imgs[0].imgUrl} alt={activeProduct.imgs[0].imgUrl} /></div>
           <div className={style.productDetailButtons}>
             <h3 style={{color:"rgb(102, 102, 102)"}}>{activeProduct.description}</h3>
-            <button>Add to cart</button>
-            <button onClick={handlePopUpProduct}>Edit</button>
+            <button onClick={handleAddToCart}>Add to cart</button>
           </div>
         </div>
         <div className={style.ProductDetailWeists}>
           <h1>Weists</h1>
-          <select name="" id="">
-            <option value="">XL</option>
-            <option value="">L</option>
-            <option value="">M</option>
-            <option value="">S</option>
+          <select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}>
+            <option value="XL">XL</option>
+            <option value="L">L</option>
+            <option value="M">M</option>
+            <option value="S">S</option>
+          </select>
+          <h1>Amount</h1>
+          <select value={selectedAmount} onChange={(e) => setSelectedAmount(e.target.value)}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
           </select>
         </div>
       </div>

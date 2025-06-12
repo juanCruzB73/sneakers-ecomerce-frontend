@@ -1,31 +1,27 @@
 import { FC } from 'react';
-import { IProduct } from '../../../types/IProduct';
 import style from './cartProduct.module.css';
-import { FaEye } from 'react-icons/fa6';
 import { FaTrashAlt } from 'react-icons/fa';
+import { ICartPorduct, onDeleteCartProduct } from '../../../store/slices/cart/cartSlice';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../../store/store';
 
 interface ICartProduct{
-    product:IProduct;
+    product:ICartPorduct ;
 }
 
 export const CartProduct:FC<ICartProduct> = ({product}) => {
+  const dispatch = useDispatch<AppDispatch>();
   return (
     <div className={style.cartProductMainContainer}>
-      <div className={style.cartProductImgContainer}><img src={product.img} alt={product.img} /></div>
+      <div className={style.cartProductImgContainer}><img src={product.imgs[0].imgUrl} alt={product.imgs[0].imgUrl} /></div>
       <div className={style.cartProductInfoContainer}>
-        <select name="" id="">
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
-            <option value="">4</option>
-        </select>
-        <h4>{product.productName}</h4>
-        <h4>{product.weist}</h4>
-        <h4>{product.price.salePrice}</h4>
+        <h4>name: {product.productName}</h4>
+        <h4>weist: {product.weist}</h4>
+        <h4>price: ${product.price}</h4>
+        <h4>selected amount: {product.selectedAmount}</h4>
       </div>
       <div className={style.cartProductButtons}>
-        <FaEye />
-        <FaTrashAlt />
+        <FaTrashAlt onClick={()=>product.productId&&dispatch(onDeleteCartProduct(product.productId))}/>
       </div>
     </div>
   )

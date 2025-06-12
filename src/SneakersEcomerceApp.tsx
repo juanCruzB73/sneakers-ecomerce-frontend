@@ -11,6 +11,8 @@ import { useDispatch } from 'react-redux';
 import { decodeJWT } from './helpers/jwt';
 import { onLogin } from './store/slices/auth/authSlice';
 import { startGetUsers } from './store/slices/user/userThunk';
+import { AddressModal } from './components/modals/address-modal/AddressModal';
+import { startGetAddresses } from './store/slices/address/addressThunk';
 
 export const SneakersEcomerceApp=()=> {
 
@@ -45,6 +47,19 @@ export const SneakersEcomerceApp=()=> {
   },[token])
 
   useEffect(() => {
+  const loadAddresses = async () => {
+    if (user?.userId) {
+      console.log("loading addresses for", user.userId);
+      dispatch(await startGetAddresses(user.userId));
+    } else {
+      console.warn("User ID not available yet");
+    }
+  };
+  loadAddresses();
+}, [user.userId]);
+
+
+  useEffect(() => {
   const loadUsers = async () => {
     if (user.userType === "admin") {
       dispatch(await startGetUsers());
@@ -57,6 +72,7 @@ export const SneakersEcomerceApp=()=> {
     <div className='aplcationContainer'>
       {(statusPopUp==true && popUpType==="login")?<LoginModal/>:<></>}
       {(statusPopUp==true && popUpType==="product")?<ProductModal/>:<></>}
+      {(statusPopUp==true && popUpType==="adddress")?<AddressModal/>:<></>}
       <AppRouter/>
     </div>
   )

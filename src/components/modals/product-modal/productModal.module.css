@@ -12,7 +12,7 @@
 }
 .productModalContainer{
     position: absolute;
-    top: 10%;
+    top: 5%;
     width: 70%;
     padding: 1rem;
     background-color: white;
@@ -66,13 +66,14 @@
         flex-direction: row;
     }
     .productModalContainer{
-        width: 65%;
-        height: 30%;
+        width: 80%;
+        height: 55%;
         border-radius: 1rem;
     }
     .productModalInputContainer{
         height: 100%;
-        width: 50%;
+        width: 40%;
+        
         flex-direction: column;
     }
     .productModalInputContainer{

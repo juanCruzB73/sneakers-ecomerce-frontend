@@ -12,78 +12,157 @@
 }
 .loginModalContainer{
     position: absolute;
-    top: 10%;
-    height: 40%;
+    top: 5%;
+    height: 80%;
     width: 70%;
     padding: 1rem;
     background-color: white;
     color: black;
     border-radius: 1rem;
 }
-.loginModalOptionModal{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    font-size: 1rem;
-}
-.loginModalOptionModal h2{
-    color: rgb(119, 119, 119);
-}
-.loginModalOptionModal h2:hover{
-    cursor: pointer;
-    color: black;
-}
-.loginModalInputsContainer{
-    display: flex;
-    align-items: center;
-    height: 40%;
-    flex-direction: column;
-    justify-content: space-around;
-}
-.loginModalInputsContainer input{
-    padding: .3rem;
-    width: 90%;
-}
-.singupModalInputContainer {
-    display: flex;
-    align-items: center;
-    height: 70%;
-    flex-direction: column;
-    justify-content: space-around; 
-}
-.singupModalInputContainer input{
-    padding: .3rem;
-    width: 90%;
-}
-.loginModalButtons{
-    display: flex;
-    width: 70%;
-    justify-content: space-around;
-}
-.loginModalButtons button{
-    width: 20vw;
-    margin-right: 10px;
-    padding: .3rem;
-    border-radius: .4rem;
-    border: none;
-    background-color: black;
-    color: white;
-    font-size: .8rem;
-}
-.loginModalProfileButtons button{
-    width: 20vw;
-    margin-right: 10px;
-    padding: .3rem;
-    border-radius: .4rem;
-    border: none;
-    background-color: black;
-    color: white;
-    font-size: .8rem;
-}
+    .singupModalInputContainer{
+        display: flex;
+        justify-content: space-around;
+        height: 48vh;
+    }
+    .loginModalInfoUserContainer{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        height: 48vh;
+    }
+    .loginModalInfoUserContainer button{
+        padding: .3rem;
+        border-radius: .4rem;
+        border: none;
+        background-color: rgb(47, 192, 18);
+        color: black;
+        font-size: .8rem;
+    }
+    .loginModalProfileButtons button{
+        width: 20vw;
+        margin-right: 10px;
+        margin-top: 10px;
+        padding: .3rem;
+        border-radius: .4rem;
+        border: none;
+        background-color: black;
+        color: white;
+        font-size: .8rem;
+    }
+    .loginModalAdminProfileButtons button{
+        width: 20vw;
+        margin-right: 10px;
+        margin-top: 10px;
+        padding: .3rem;
+        border-radius: .4rem;
+        border: none;
+        background-color: black;
+        color: white;
+        font-size: .8rem;
+    }
+    .loginModalButtonContainer{
+        display: flex;
+        width: 100%;
+    }
+    .loginModalOptionModal{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .loginModalInputsContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 25vh;
+    }
+    .loginModalInputsContainer input{
+        padding: .6rem;
+    }
+    .loginModalInputsContainer button{
+        width: 20vw;
+        margin-right: 10px;
+        margin-top: 10px;
+        padding: .3rem;
+        border-radius: .4rem;
+        border: none;
+        background-color: black;
+        color: white;
+        font-size: .8rem;
+    }
+    .singupModalInputContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 55vh;
+    }
+    .singupModalInputContainer input{
+        padding: .4rem;
+    }
+    .singupModalInputContainer button{
+        width: 20vw;
+        margin-right: 10px;
+        margin-top: 10px;
+        padding: .3rem;
+        border-radius: .4rem;
+        border: none;
+        background-color: black;
+        color: white;
+        font-size: .8rem;
+    }
+
 @media (min-width: 768px){
     .loginModalContainer{
-        width: 35%;
-        height: 30%;
+        height: 70%;
         border-radius: 1rem;
+    }
+    .loginModalInputsContainer{
+        display: flex;
+        justify-content: space-around;
+        height: 37vh;
+    }
+    .singupModalInputContainer{
+        display: flex;
+        justify-content: space-around;
+        height: 60vh;
+    }
+    .loginModalInfoUserContainer{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        height: 48vh;
+    }
+    .loginModalInfoUserContainer button{
+        padding: .3rem;
+        border-radius: .4rem;
+        border: none;
+        background-color: rgb(47, 192, 18);
+        color: black;
+        font-size: .8rem;
+    }
+    .loginModalAdminProfileButtons button{
+        width: 20vw;
+        margin-right: 10px;
+        margin-top: 10px;
+        padding: .3rem;
+        border-radius: .4rem;
+        border: none;
+        background-color: black;
+        color: white;
+        font-size: .8rem;
+    }
+}
+@media (min-width: 1200px){
+    .loginModalContainer{
+        height: 100vh;
+        border-radius: 1rem;
+    }
+    .loginModalProfileButtons{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .singupModalInputContainer{
+        height: 65vh;
     }
 }

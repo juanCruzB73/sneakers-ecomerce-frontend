@@ -21,7 +21,7 @@ export const Home=()=>{
   return (
     <div className={style.homeMainContainer}>
         <NavBar/>
-        <div className={style.homeDiscountContainer}><h3>descuentos</h3></div>
+        <div className={style.homeDiscountContainer}><h3>discounts</h3></div>
         <div className={style.homeMainImageContainer}>
           <div className={style.homeImageContainer}><img src={homeImage1} alt="" /></div>
           <div className={style.homeImageContainer}><img src={homeImage2} alt="" /></div>

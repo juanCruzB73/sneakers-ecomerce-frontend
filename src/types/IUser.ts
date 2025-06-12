@@ -5,7 +5,7 @@ export interface IUser{
     name:string;
     lastname:string;
     username:string;
-    dni:string;
+    dni:number;
     email:string;
     password?:string;
     userType:string;
