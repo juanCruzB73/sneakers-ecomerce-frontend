@@ -17,6 +17,7 @@ import { startGetAddresses } from './store/slices/address/addressThunk';
 export const SneakersEcomerceApp=()=> {
 
   const {statusPopUp,popUpType} = useSelector((state:RootState)=>state.popUp);
+  const {address} = useSelector((state:RootState)=>state.address);
   const {products} = useSelector((state:RootState)=>state.product);
   const {user} = useSelector((state:RootState)=>state.auth);
   const dispatch=useDispatch<AppDispatch>();
@@ -55,7 +56,7 @@ export const SneakersEcomerceApp=()=> {
       console.warn("User ID not available yet");
     }
   };
-  loadAddresses();
+    loadAddresses();
 }, [user.userId]);
 
 

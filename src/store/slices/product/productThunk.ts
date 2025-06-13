@@ -121,6 +121,7 @@ export const startAddProduct = (productIn: ICreateProduct) => {
 };
 
 export const startUpdateProduct = (productIn: ICreateProduct) => {
+  
   return async (dispatch: AppDispatch) => {
     try {
       dispatch(onCheckProducts());
@@ -132,8 +133,8 @@ export const startUpdateProduct = (productIn: ICreateProduct) => {
         },
         body: JSON.stringify(productIn),
       });
-
       const data = await response.json();
+      
 
       dispatch(onUpdateProduct(data));
       dispatch(onClearMessage());
@@ -158,4 +159,6 @@ export const startDeleteProduct=(porductId:number)=>{
       throw error;
     }
   };
+
+  
 }

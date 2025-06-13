@@ -16,7 +16,7 @@ export const CartProduct:FC<ICartProduct> = ({product}) => {
       <div className={style.cartProductImgContainer}><img src={product.imgs[0].imgUrl} alt={product.imgs[0].imgUrl} /></div>
       <div className={style.cartProductInfoContainer}>
         <h4>name: {product.productName}</h4>
-        <h4>weist: {product.weist}</h4>
+        <h4>weist: {product.weist.value}</h4>
         <h4>price: ${product.price}</h4>
         <h4>selected amount: {product.selectedAmount}</h4>
       </div>

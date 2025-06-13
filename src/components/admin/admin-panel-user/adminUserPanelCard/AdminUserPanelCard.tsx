@@ -6,7 +6,6 @@ import { IUser } from '../../../../types/IUser';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../../../store/store';
 import { startDeleteUser, startUpdateUser } from '../../../../store/slices/user/userThunk';
-import { startUpdateProduct } from '../../../../store/slices/product/productThunk';
 
 interface IAdminUserPanelCard{
     user:IUser;
@@ -18,17 +17,17 @@ export const AdminUserPanelCard:FC<IAdminUserPanelCard> = ({user}) => {
 
   const onHandleDelete=()=>{
       user.userId&&dispatch(startDeleteUser(user.userId));
-      dispatch(startUpdateUser({userId:user.userId,active:false}));
+      user.userId&&dispatch(startUpdateUser({userId:user.userId,active:false}));
     }
     
     const onHandleActivate=async()=>{
-      dispatch(startUpdateUser({userId:user.userId,active:true}));
+      user.userId&&dispatch(startUpdateUser({userId:user.userId,active:true}));
     }
     const onHandleMakeAdmin=async()=>{
-      dispatch(startUpdateUser({userId:user.userId,userType:"admin"}));
+      user.userId&&dispatch(startUpdateUser({userId:user.userId,userType:"admin"}));
     }
     const onHandleMakeUser=async()=>{
-      dispatch(startUpdateUser({userId:user.userId,userType:"user"}));
+      user.userId&&dispatch(startUpdateUser({userId:user.userId,userType:"user"}));
     }
 
   return (

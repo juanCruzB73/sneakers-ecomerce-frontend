@@ -1,6 +1,7 @@
 import { IDiscount } from "./IDiscount";
 import { IImg } from "./IImg";
 import { IPrice } from "./IPrice";
+import { IWeistStock } from "./IWeistStock";
 
 export interface IProduct{
     productId?:number;
@@ -8,12 +9,11 @@ export interface IProduct{
     productType:string;
     productSubType:string;
     description:string;
-    weist:string[];
-    stock:number;
     color:string;
     imgs:IImg[];
     sex:string;
     discount:IDiscount;
     price:IPrice;
     active?:boolean;
+    weistStock:IWeistStock[]
 }

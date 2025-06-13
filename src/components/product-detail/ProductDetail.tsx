@@ -11,21 +11,28 @@ import { RootState } from '@reduxjs/toolkit/query';
 import { useParams } from 'react-router-dom';
 import { startSelectActiveProduct } from '../../store/slices/product/productThunk';
 import { onAddCartProduct } from '../../store/slices/cart/cartSlice';
+import { IWeist } from '../../types/IWeist';
+import { IWeistStock } from '../../types/IWeistStock';
 
 export const ProductDetail = () => {
 
   const {statusPopUp} = useSelector((state:RootState)=>state.popUp);
   const {activeProduct} = useSelector((state:RootState)=>state.product);
 
-  const [selectedSize, setSelectedSize] = useState("M");
+    const [selectedWeist, setSelectedWeist] = useState<IWeist | null>(null);
   const [selectedAmount, setSelectedAmount] = useState("1");
+
+  useEffect(() => {
+    if (activeProduct && activeProduct.weistStock.length > 0) {
+      setSelectedWeist(activeProduct.weistStock[0].weist);
+    }
+  }, [activeProduct]);
 
   const dispatch = useDispatch<AppDispatch>();
 
   const handlePopUpProduct=()=>{
       dispatch(onHandlePopUp({popUpType:"product",statusPopUp:!statusPopUp}))
   }
-
   const { id } = useParams();
 
   useEffect(()=>{
@@ -38,8 +45,16 @@ export const ProductDetail = () => {
   if (!activeProduct) {
     return <div>Loading product details...</div>;
   }
+
   const handleAddToCart = () => {
-    dispatch(onAddCartProduct({...activeProduct,weist:selectedSize,price:activeProduct.price.salePrice,selectedAmount:selectedAmount}))
+    if (!selectedWeist) return;
+
+    dispatch(onAddCartProduct({
+      ...activeProduct,
+      weist: selectedWeist,
+      price: activeProduct.price.salePrice,
+      selectedAmount: selectedAmount,
+    }));
   };
 
   return (
@@ -61,18 +76,26 @@ export const ProductDetail = () => {
         </div>
         <div className={style.ProductDetailWeists}>
           <h1>Weists</h1>
-          <select value={selectedSize} onChange={(e) => setSelectedSize(e.target.value)}>
-            <option value="XL">XL</option>
-            <option value="L">L</option>
-            <option value="M">M</option>
-            <option value="S">S</option>
-          </select>
+           <select
+              value={selectedWeist?.id || ''}
+              onChange={(e) => {
+                const weistId = Number(e.target.value);
+                const weistObj = activeProduct.weistStock.find(ws => ws.weist.id === weistId)?.weist || null;
+                setSelectedWeist(weistObj);
+              }}
+            >
+                {activeProduct.weistStock.map((ws: IWeistStock) => (
+                  <option key={ws.weist.id} value={ws.weist.id}>
+                    {ws.weist.value}
+                  </option>
+                ))}
+            </select>
           <h1>Amount</h1>
           <select value={selectedAmount} onChange={(e) => setSelectedAmount(e.target.value)}>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <option >1</option>
+            <option >2</option>
+            <option >3</option>
+            <option >4</option>
           </select>
         </div>
       </div>
